@@ -3,7 +3,7 @@ HomeschoolHomeroom::Application.routes.draw do
   devise_for :users
   root to: "home#index"
 
-  resources :groups, only: [:index, :show]
+  resources :groups, only: [:index, :show, :new, :create]
   resources :memberships, only: [:new, :create]
 
   resources :groups do

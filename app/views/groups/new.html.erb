@@ -1,0 +1,8 @@
+<h2>Add group</h2>
+
+<%= simple_form_for @group do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :location %>
+  <%= f.submit 'Create Group' %>
+<% end %>
