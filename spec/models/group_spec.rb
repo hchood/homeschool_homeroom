@@ -10,4 +10,6 @@ describe Group do
 
   it { should validate_uniqueness_of :name }
   it { should belong_to(:organizer).class_name('User').with_foreign_key(:organizer_id) }
+
+  it { should have_many(:memberships).dependent(:destroy) }
 end
