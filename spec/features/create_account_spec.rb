@@ -40,11 +40,45 @@ feature 'new user creates an account', %Q{
   end
 
   scenario 'provides an email that is already in use' do
+    existing_user = FactoryGirl.create(:user)
 
+    visit '/'
+    click_on 'Sign Up'
+    fill_in 'First Name', with: user.first_name
+    fill_in 'Last Name', with: user.last_name
+    fill_in 'Email', with: existing_user.email
+    fill_in 'Password', with: user.password
+    fill_in 'Password Confirmation', with: user.password_confirmation
+    fill_in 'Interests', with: user.interests
+    click_on 'Sign me up!'
+
+    expect(page).to have_content 'Email has already been taken'
+    expect(page).to have_button 'Sign me up!'
   end
 
-  scenario 'has missing attributes'
+  scenario 'has missing attributes' do
+    visit '/'
+    click_on 'Sign Up'
+    click_on 'Sign me up!'
+
+    expect(page).to have_content "can't be blank"
+    expect(page).to have_button 'Sign me up!'
+  end
+
+  scenario 'password confirmation does not match password' do
+    visit '/'
+    click_on 'Sign Up'
+    fill_in 'First Name', with: user.first_name
+    fill_in 'Last Name', with: user.last_name
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    fill_in 'Password Confirmation', with: 'abcdefgh'
+    fill_in 'Interests', with: user.interests
+    click_on 'Sign me up!'
+
+    expect(page).to have_content "Password confirmation doesn't match Password"
+    expect(page).to have_button 'Sign me up!'
+  end
 
   scenario 'provides invalid email'
-
 end
