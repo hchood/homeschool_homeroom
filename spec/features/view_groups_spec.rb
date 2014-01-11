@@ -10,7 +10,7 @@ feature 'authenticated user views groups', %Q{
   # *   Upon signing in, I am shown the name, description, and location for all groups that exist
   # *   I cannot view groups if I am not signed in.
 
-  let!(:user)   { FactoryGirl.build(:user) }
+  let!(:user)   { FactoryGirl.create(:user) }
   let!(:group1) { FactoryGirl.create(:group) }
   let!(:group2) { FactoryGirl.create(:group) }
 

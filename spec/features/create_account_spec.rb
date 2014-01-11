@@ -23,7 +23,15 @@ feature 'new user creates an account', %Q{
   let!(:user) { FactoryGirl.build(:user) }
 
   scenario 'provides valid attributes' do
-    login(user)
+    visit '/'
+    click_on 'Sign Up'
+    fill_in 'First Name', with: user.first_name
+    fill_in 'Last Name', with: user.last_name
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    fill_in 'Password Confirmation', with: user.password_confirmation
+    fill_in 'Interests', with: user.interests
+    click_on 'Sign me up!'
 
     expect(page).to have_content "Welcome! You have signed up successfully"
     expect(page).to_not have_link 'Sign Up'
@@ -31,7 +39,9 @@ feature 'new user creates an account', %Q{
     expect(page).to have_content 'All Groups'
   end
 
-  scenario 'provides an email that is already in use'
+  scenario 'provides an email that is already in use' do
+
+  end
 
   scenario 'has missing attributes'
 
