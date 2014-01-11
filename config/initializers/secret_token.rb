@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-HomeschoolHomeroom::Application.config.secret_key_base = '0c9dc8ac96e41c896316b1a0a553ed6637b761e40465bc9c50c5776c487a22b02ea29dce6a7a367979d6d770b73bff35fbc5b3265c2b68862ab62ddf847163e4'
+HomeschoolHomeroom::Application.config.secret_key_base = ENV['SECRET_TOKEN']
