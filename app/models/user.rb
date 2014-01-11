@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
 
   has_many :memberships, foreign_key: 'member_id', dependent: :destroy
   has_many :groups, through: :memberships
+  has_many :topics, foreign_key: 'author_id'
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 
   def is_member_of(group)
     membership = Membership.where(member: self, group: group)

@@ -9,4 +9,5 @@ class Group < ActiveRecord::Base
   belongs_to :organizer, class_name: 'User', foreign_key: 'organizer_id'
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships, foreign_key: 'member_id'
+  has_many :topics, dependent: :destroy
 end

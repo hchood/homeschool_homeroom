@@ -1,0 +1,25 @@
+<h2>Group Profile</h2>
+<div>
+  <p>Name: <%= @group.name %></p>
+  <p>Description: <%= @group.description %></p>
+  <p>Organizer: <%= @group.organizer.name %></p>
+  <p>Location: <%= @group.location %></p>
+</div>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Posted by</th>
+  </tr>
+
+  <% @group.topics.each do |topic| %>
+  <tr>
+    <td><%= topic.created_at %></td>
+    <td><%= topic.name %></td>
+    <td><%= topic.description %></td>
+    <td><%= topic.author.name %></td>
+  </tr>
+  <% end %>
+</table>

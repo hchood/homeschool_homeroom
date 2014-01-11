@@ -12,4 +12,5 @@ describe Group do
   it { should belong_to(:organizer).class_name('User').with_foreign_key(:organizer_id) }
 
   it { should have_many(:memberships).dependent(:destroy) }
+  it { should have_many(:topics).dependent(:destroy) }
 end
