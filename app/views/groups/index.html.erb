@@ -1,0 +1,19 @@
+
+<h1>All Groups</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Location</th>
+  </tr>
+
+<% @groups.each do |group| %>
+  <tr>
+    <td><%= group.name %></td>
+    <td><%= group.description %></td>
+    <td><%= group.location %></td>
+  </tr>
+<% end %>
+
+</table>
