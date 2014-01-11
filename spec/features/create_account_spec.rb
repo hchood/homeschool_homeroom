@@ -24,10 +24,11 @@ feature 'new user creates an account', %Q{
 
   scenario 'provides valid attributes' do
     login(user)
-    save_and_open_page
-    expect(page).to have_content "Welcome, #{user.first_name}!"
+
+    expect(page).to have_content "Welcome! You have signed up successfully"
     expect(page).to_not have_link 'Sign Up'
     expect(page).to have_link 'Sign Out'
+    expect(page).to have_content 'All Groups'
   end
 
   scenario 'provides an email that is already in use'
