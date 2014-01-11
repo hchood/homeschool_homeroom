@@ -32,7 +32,18 @@ feature 'authenticated user joins group', %Q{
     expect(page).to have_content "Welcome to #{group.name}!"
   end
 
-  scenario 'unauthenticated user tries to join group'
+  scenario 'unauthenticated user tries to join group' do
+    visit '/'
 
-  scenario 'user is already member of group'
+    # join button/link is not displayed
+    expect(page).to_not have_content 'Join'
+  end
+
+  scenario 'user is already member of group' do
+    login(user)
+    click_on 'Join'
+
+    visit '/groups'
+    expect(page).to_not have_content 'Join'
+  end
 end

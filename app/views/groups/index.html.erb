@@ -13,7 +13,9 @@
     <td><%= group.name %></td>
     <td><%= group.description %></td>
     <td><%= group.location %></td>
-    <td><%= button_to 'Join', {controller: :memberships, action: :create, group_id: group.id } %></td>
+    <% unless current_user.is_member_of(group) %>
+      <td><%= button_to 'Join', {controller: :memberships, action: :create, group_id: group.id } %></td>
+    <% end %>
   </tr>
 <% end %>
 

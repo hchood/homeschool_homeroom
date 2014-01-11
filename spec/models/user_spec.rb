@@ -11,4 +11,19 @@ describe User do
 
   # it { should validate_presence_of :username }
   # it { should validate_uniqueness_of :username }
+
+
+  describe '.is_member_of' do
+    let!(:user) { FactoryGirl.create(:user) }
+    let!(:group) { FactoryGirl.create(:group) }
+
+    it 'returns true if the user is a member of the group' do
+      expect(user.is_member_of(group)).to be_false
+    end
+
+    it 'returns false if user is not a member' do
+      Membership.create(member: user, group: group)
+      expect(user.is_member_of(group)).to be_true
+    end
+  end
 end
