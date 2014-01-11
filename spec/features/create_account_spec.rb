@@ -28,9 +28,11 @@ feature 'new user creates an account', %Q{
     fill_in 'First Name', with: user.first_name
     fill_in 'Last Name', with: user.last_name
     fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    fill_in 'Password Confirmation', with: user.password_confirmation
     fill_in 'Interests', with: user.interests
     click_on 'Sign me up!'
-
+    save_and_open_page
     expect(page).to have_content "Welcome, #{user.first_name}!"
     expect(page).to_not have_link 'Sign Up'
     expect(page).to have_link 'Sign Out'
