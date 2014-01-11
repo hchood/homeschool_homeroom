@@ -23,7 +23,7 @@ feature 'authenticated user joins group', %Q{
     expect(Membership.count).to eq 1
 
     # updates the groups' memberships list
-    expect(group.memberships).to eq 1
+    expect(group.memberships.count).to eq 1
 
     # redirects to /groups/1
     expect(current_path).to eq "/groups/#{group.id}"

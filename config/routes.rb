@@ -3,7 +3,7 @@ HomeschoolHomeroom::Application.routes.draw do
   devise_for :users
   root to: "home#index"
 
-  resources :groups, only: [:index]
+  resources :groups, only: [:index, :show]
   resources :memberships, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
