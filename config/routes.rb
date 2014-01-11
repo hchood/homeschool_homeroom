@@ -5,6 +5,11 @@ HomeschoolHomeroom::Application.routes.draw do
 
   resources :groups, only: [:index, :show]
   resources :memberships, only: [:new, :create]
+
+  resources :groups do
+    resources :topics, only: [:new, :create]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

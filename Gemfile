@@ -34,6 +34,8 @@ end
 
 gem 'devise'
 
+gem 'simple_form'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
