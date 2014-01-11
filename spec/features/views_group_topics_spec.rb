@@ -27,7 +27,7 @@ feature "member of a group views the group's proposed topics", %Q{
     login(user)
     visit "/groups/#{group.id}"
 
-    expect(page).to have_content 'You are not a member of this group.'
+    expect(page).to have_content "You must be a member to view a group's profile."
   end
 
   scenario 'user is not signed in' do
