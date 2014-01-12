@@ -38,6 +38,10 @@ gem 'simple_form'
 
 gem 'foundation-rails'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
