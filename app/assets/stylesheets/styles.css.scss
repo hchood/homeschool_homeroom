@@ -1,0 +1,9 @@
+@import "foundation_and_overrides";
+
+.bg {
+  background: image_url('mac_glasses_mouse.jpg') center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

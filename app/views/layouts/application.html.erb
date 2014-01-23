@@ -4,28 +4,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Welcome to Homeschool Homeroom!" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
-<h1>Welcome to Homeschool Homeroom!</h1>
+  <body class="bg">
 
-<% if current_user %>
-  <ul>
-    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-    <li><%= link_to_function 'Back', 'history.back()' %></li>
-  </ul>
-<% end %>
+    <% if current_user %>
+      <ul>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to_function 'Back', 'history.back()' %></li>
+      </ul>
+    <% else %>
+      <%= link_to 'Sign Up', new_user_registration_path %>
+      <%= link_to 'Sign In', new_user_session_path %>
+    <% end %>
 
    <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
 
-
     <%= yield %>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
