@@ -22,6 +22,5 @@ feature 'user creates group', %Q{
     fill_in 'Description', with: group.description
     fill_in 'Location', with: group.location
     click_on 'Create Group'
-
   end
 end

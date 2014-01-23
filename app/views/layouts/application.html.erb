@@ -12,6 +12,18 @@
   </head>
 
   <body>
+<h1>Welcome to Homeschool Homeroom!</h1>
+
+<% if current_user %>
+  <ul>
+    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to_function 'Back', 'history.back()' %></li>
+  </ul>
+<% end %>
+
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+
 
     <%= yield %>
     <%= javascript_include_tag "application" %>
