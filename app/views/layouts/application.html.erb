@@ -11,20 +11,17 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body class="bg">
+  <body>
 
     <% if current_user %>
       <ul>
         <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <li><%= link_to_function 'Back', 'history.back()' %></li>
       </ul>
-    <% else %>
-      <%= link_to 'Sign Up', new_user_registration_path %>
-      <%= link_to 'Sign In', new_user_session_path %>
     <% end %>
 
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <%= yield %>
 

@@ -1,9 +1,12 @@
 @import "foundation_and_overrides";
 
-.bg {
-  background: image_url('mac_glasses_mouse.jpg') center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.content {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 10px 40px 20px 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  border: #c8957b 1px solid;
 }
