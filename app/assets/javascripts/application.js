@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require 'jquery.backstretch'
 //= require foundation
-//= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(document).foundation();
+$.backstretch("https://s3.amazonaws.com/homeschool-homeroom-production/mac_book_pencils.jpg");

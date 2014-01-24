@@ -1,0 +1,19 @@
+@import "foundation_and_overrides";
+
+.content {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 10px 40px 20px 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  border: $secondary-color 1px solid;
+}
+
+.horizontal {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: inline;
+}

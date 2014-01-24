@@ -1,26 +1,31 @@
+<div class="row">
+  <div class="large-8 small-12 columns large-centered">
+    <div class="content">
+      <h1>All Groups</h1>
 
-<h1>All Groups</h1>
+      <p><%= link_to 'Add Group', new_group_path %></p>
 
-<p><%= link_to 'Add Group', new_group_path %></p>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Location</th>
+        </tr>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Location</th>
-  </tr>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= group.name %></td>
+          <td><%= group.description %></td>
+          <td><%= group.location %></td>
+          <% unless current_user.is_member_of(group) %>
+            <td><%= button_to 'Join', {controller: :memberships, action: :create, group_id: group.id }, class: 'button tiny' %></td>
+          <% else %>
+            <td><%= link_to 'Profile', group_path(group) %></td>
+          <% end %>
+        </tr>
+      <% end %>
 
-<% @groups.each do |group| %>
-  <tr>
-    <td><%= group.name %></td>
-    <td><%= group.description %></td>
-    <td><%= group.location %></td>
-    <% unless current_user.is_member_of(group) %>
-      <td><%= button_to 'Join', {controller: :memberships, action: :create, group_id: group.id } %></td>
-    <% else %>
-      <td><%= link_to 'Profile', group_path(group) %></td>
-    <% end %>
-  </tr>
-<% end %>
-
-</table>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,27 +1,42 @@
-<h2>Group Profile</h2>
-<div>
-  <p>Name: <%= @group.name %></p>
-  <p>Description: <%= @group.description %></p>
-  <p>Organizer: <%= @group.organizer.name %></p>
-  <p>Location: <%= @group.location %></p>
+<div class="row">
+  <div class="large-8 small-12 columns large-centered">
+    <div class="content">
+
+      <h2>Group Profile</h2>
+      <div>
+        <p>Name: <%= @group.name %></p>
+        <p>Description: <%= @group.description %></p>
+        <p>Organizer: <%= @group.organizer.name %></p>
+        <p>Location: <%= @group.location %></p>
+      </div>
+
+      <p><%= button_to 'Propose a lesson topic', { controller: :topics, action: :new, group_id: @group.id, author_id: current_user.id }, method: :get, class: 'button' %></p>
+    </div>
+  </div>
 </div>
 
-<p><%= button_to 'Propose a lesson topic', { controller: :topics, action: :new, group_id: @group.id, author_id: current_user.id }, method: :get %></p>
+<% if !@group.topics.blank? %>
+  <div class="row">
+    <div class="large-8 small-12 columns large-centered">
+      <div class="content">
+        <table>
+          <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Posted by</th>
+          </tr>
 
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Posted by</th>
-  </tr>
-
-  <% @group.topics.each do |topic| %>
-  <tr>
-    <td><%= topic.created_at %></td>
-    <td><%= topic.name %></td>
-    <td><%= topic.description %></td>
-    <td><%= topic.author.name %></td>
-  </tr>
-  <% end %>
-</table>
+          <% @group.topics.each do |topic| %>
+          <tr>
+            <td><%= topic.created_at %></td>
+            <td><%= topic.name %></td>
+            <td><%= topic.description %></td>
+            <td><%= topic.author.name %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>
