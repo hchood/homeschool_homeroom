@@ -1,2 +1,21 @@
-<%= link_to 'Sign Up', new_user_registration_path %>
-<%= link_to 'Sign In', new_user_session_path %>
+<div class="row">
+  <div class="small-12 centered">
+    <div class="content centered">
+      <h1>Welcome to Homeschool Homeroom!</h1>
+      <p> Homeschool Homeroom helps homeschooling groups to plan lessons on topics that interest their students.</p>
+
+      <p>Students can propose topics that they want to learn about which their peers can upvote, allowing parents and teachers to gauge interest.  Others in the group who have some knowledge of that topic can then claim it and schedule it using Google calendars.</p>
+    <p>
+      This app was created by <%= link_to 'Helen Hood', 'http://www.linkedin.com/in/helenhood', target: '_blank' %>, an apprentice developer at <%= link_to 'Launch Academy', 'http://www.launchacademy.com/', target: '_blank' %>, as part of Launch's inaugural "Ship It Saturday" hackathon.  It is currently in its alpha stages and will be developed further in the coming weeks.  If you have any comments or suggestions, please <%= link_to 'Tweet at Helen', 'https://twitter.com/hchood', target: '_blank' %>.  Thanks!
+    </p>
+  </div>
+
+  <div class="row">
+    <div class="large-3 small-6 content">
+      <%= link_to 'Sign Up', new_user_registration_path %>
+    </div>
+    <div class="large-3 small-6 content">
+      <%= link_to 'Sign In', new_user_session_path %>
+    </div>
+  </div>
+</div>
