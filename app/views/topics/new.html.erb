@@ -1,11 +1,19 @@
-<h2>Post a new lesson topic</h2>
+<div class="row">
+  <div class="large-8 small-12 columns large-centered">
+    <div class="content">
 
-<div>
-  <%= form_for [@group, @topic] do |f| %>
-    <%= f.label :name, 'Name' %>
-    <%= f.text_field :name %>
-    <%= f.label :description, 'Description' %>
-    <%= f.text_area :description %>
-    <%= f.submit %>
-  <% end %>
+      <h2>Post a new lesson topic</h2>
+
+      <div>
+        <%= form_for [@group, @topic] do |f| %>
+          <%= f.label :name, 'Name' %>
+          <%= f.text_field :name %>
+          <%= f.label :description, 'Description' %>
+          <%= f.text_area :description %>
+          <%= f.submit "Post Topic", class: "button"  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+

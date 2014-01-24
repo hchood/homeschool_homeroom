@@ -10,3 +10,10 @@
   margin-bottom: 10px;
   border: $secondary-color 1px solid;
 }
+
+.horizontal {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: inline;
+}
